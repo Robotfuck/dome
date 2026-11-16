@@ -9,7 +9,7 @@ npm install
 npm run dev
 ```
 
-Open `http://localhost:4321/` for the website and `http://localhost:4321/keystatic` for the local CMS. Content is stored as YAML in `content/`; CMS uploads go to `public/uploads/`.
+Open `http://localhost:4321/` for the website and `http://localhost:4321/keystatic/` for the local CMS. Content is stored as YAML in `content/`; CMS uploads go to `public/uploads/`.
 
 ## Cloudflare target
 
