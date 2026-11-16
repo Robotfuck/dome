@@ -1,0 +1,50 @@
+---
+import '../styles/global.css';
+const { title = 'The Dome Sessions', description = 'A documentary film exploring sound, architecture and memory in Tripoli, Lebanon.', image = '/assets/film-8.jpg', active = '' } = Astro.props;
+const nav = [
+  ['The Film', '/', 'home'], ['The Vinyl', '/vinyl/', 'vinyl'], ['The Team', '/team/', 'team'],
+  ['Heritage Site', '/heritage/', 'heritage'], ['The Dome', '/dome/', 'dome'], ['Contact', '/contact/', 'contact'],
+];
+const canonical = new URL(Astro.url.pathname, 'https://thedomesessions.com').toString();
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#121311" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, 'https://thedomesessions.com')} />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="The Dome Sessions — home">THE DOME <span>SESSIONS</span></a>
+      <button class="menu-toggle" aria-label="Open navigation" aria-controls="site-nav" aria-expanded="false">MENU <span aria-hidden="true">☰</span></button>
+      <nav id="site-nav" class="navigation" aria-label="Main navigation">
+        {nav.map(([label, href, key]) => <a href={href} class:list={{ active: active === key }}>{label}</a>)}
+      </nav>
+    </header>
+    <main id="main"><slot /></main>
+    <footer class="site-footer">
+      <a class="brand" href="/">THE DOME SESSIONS</a>
+      <div>TRIPOLI, LEBANON <span class="footer-sep">/</span> © 2026 THE DOME SESSIONS</div>
+      <a href="mailto:info@thedomesessions.com">INFO@THEDOMESESSIONS.COM ↗</a>
+    </footer>
+    <script>
+      const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle');
+      const nav = document.querySelector<HTMLElement>('.navigation');
+      toggle?.addEventListener('click', () => {
+        const open = nav?.classList.toggle('open') ?? false;
+        toggle.setAttribute('aria-expanded', String(open));
+        toggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+        toggle.innerHTML = open ? 'CLOSE <span aria-hidden="true">×</span>' : 'MENU <span aria-hidden="true">☰</span>';
+      });
+    </script>
+  </body>
+</html>

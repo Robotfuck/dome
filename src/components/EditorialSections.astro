@@ -1,0 +1,12 @@
+---
+import { publicImage, renderMarkdoc, type MarkdocContent } from '../lib/content';
+interface Props {
+  sections?: ReadonlyArray<{ visible: boolean; eyebrow?: string; heading: string; body: MarkdocContent; image: string | null; imageAlt?: string; caption?: string }>;
+}
+const { sections = [] } = Astro.props;
+---
+{sections.filter((s) => s.visible).map((section, i) => <section class="section">
+  <div class="eyebrow"><span>{String(i + 1).padStart(2, '0')}</span><span>{section.eyebrow || 'THE STORY'}</span></div>
+  <div class="editorial-grid"><h2>{section.heading}</h2><div class="prose rich-text" set:html={renderMarkdoc(section.body)} /></div>
+  {section.image && <figure class="wide-image"><img src={publicImage(section.image)} alt={section.imageAlt || ''} loading="lazy" /><figcaption>{section.caption}</figcaption></figure>}
+</section>)}

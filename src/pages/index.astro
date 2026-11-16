@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import SectionIntro from '../components/SectionIntro.astro';
+import Gallery from '../components/Gallery.astro';
+import EndLink from '../components/EndLink.astro';
+import { page, collection, renderMarkdoc, publicImage } from '../lib/content';
+const home = await page.home();
+const festivals = (await collection.festivals()).map((item) => item.entry).filter((f) => f.visible).sort((a,b) => (a.order ?? 0)-(b.order ?? 0));
+const press = (await collection.press()).map((item) => item.entry).filter((a) => a.visible).sort((a,b) => (a.order ?? 0)-(b.order ?? 0));
+const vimeo = home.vimeoUrl || 'https://vimeo.com/1229506144';
+const videoId = vimeo.match(/(?:vimeo\.com\/(?:video\/)?)(\d+)/)?.[1];
+const embed = videoId ? `https://player.vimeo.com/video/${videoId}?title=0&byline=0&portrait=0` : '';
+---
+<BaseLayout title={home.seoTitle} description={home.seoDescription} image={publicImage(home.ogImage || home.heroImage)} active="home">
+  <Hero image={home.heroImage} alt={home.heroAlt} eyebrow="A FILM BY FIRAS EL HALLAK / TRIPOLI, LEBANON" title={home.title} subtitle={home.tagline} cta="WATCH THE TRAILER" />
+  {festivals.length > 0 && <section class="festival-row" aria-label="Festival selections">
+    <span class="micro">OFFICIAL SELECTION</span>
+    {festivals.map((f) => <a class="festival-item" href={f.url} target="_blank" rel="noopener noreferrer">
+      {f.logo && <img src={publicImage(f.logo)} alt={`${f.name} ${f.year} festival graphic`} loading="lazy" />}
+      <p>{f.name}<br />{f.year} — {f.designation}</p>
+    </a>)}
+  </section>}
+  <section class="section intro-section" id="about"><SectionIntro index="01" label="THE FILM" />
+    <div class="editorial-grid"><h2>{home.introHeading}</h2><div class="prose"><p class="lead">{home.shortSynopsis}</p><div class="rich-text" set:html={renderMarkdoc(home.fullSynopsis)} />{home.directorsStatement && <blockquote class="rich-text" set:html={renderMarkdoc(home.directorsStatement)} />}</div></div>
+  </section>
+  <figure class="wide-image"><img src={publicImage(home.gallery?.find((item) => item.featured)?.image || home.heroImage)} alt={home.gallery?.find((item) => item.featured)?.alt || home.heroAlt} loading="lazy" /></figure>
+  <section class="section trailer-section" id="trailer"><SectionIntro index="02" label="WATCH" /><div class="section-heading"><h2>Trailer<span class="period">.</span></h2><a class="text-link" href={vimeo} target="_blank" rel="noopener noreferrer">OPEN ON VIMEO ↗</a></div>
+    {embed && <div class="video-frame"><iframe src={embed} title="The Dome Sessions — Official Trailer" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>}
+  </section>
+  <Gallery images={home.gallery} heading={home.galleryHeading} label="FILM STILLS" />
+  <section class="section credits-section"><SectionIntro index="04" label="CREDITS" /><div class="editorial-grid"><div><h2>Made by<br /><em>many hands.</em></h2><p class="credits-caption">THE DOME SESSIONS IS</p></div>
+    <dl class="credits-list">{home.credits?.map((credit) => <div class="credit"><dt>{credit.role}</dt><dd>{credit.person}</dd></div>)}</dl></div>
+  </section>
+  {(home.specifications?.some((x) => x.label && x.value)) && <section class="section"><SectionIntro index="05" label="TECHNICAL INFORMATION" /><dl class="credits-list">{home.specifications.filter((x) => x.label && x.value).map((spec) => <div class="credit"><dt>{spec.label}</dt><dd>{spec.value}</dd></div>)}</dl></section>}
+  {(press.length > 0) && <section class="section press-section"><SectionIntro index="06" label="PRESS & FESTIVALS" /><div class="editorial-grid"><h2>Seen &<br /><em>heard.</em></h2><div class="press-list">{press.map((article) => <a href={article.url} target="_blank" rel="noopener noreferrer">{article.publication} — {article.title}<span>↗</span></a>)}</div></div></section>}
+  <EndLink href="/vinyl/" kicker="DISCOVER THE RECORD" title="THE VINYL" />
+</BaseLayout>

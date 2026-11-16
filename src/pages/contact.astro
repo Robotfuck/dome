@@ -1,0 +1,8 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { page, publicImage } from '../lib/content';
+const contact = await page.contact();
+---
+<BaseLayout title={contact.seoTitle} description={contact.seoDescription} image={publicImage(contact.ogImage)} active="contact">
+  <section class="contact-page"><div class="page-title"><div class="eyebrow"><span>06</span><span>CONTACT</span></div><h1>{contact.title}</h1><p>{contact.intro}</p></div><div class="contact-details"><p class="micro">PRODUCTION CONTACT</p><a class="contact-email" href={`mailto:${contact.productionEmail}`}>{contact.productionEmail} <span>↗</span></a><div class="contact-lines"><p>{contact.productionName}</p><p>TRIPOLI · LEBANON</p></div>{contact.additionalEmails?.map((email) => <p><a href={`mailto:${email}`}>{email} ↗</a></p>)}{contact.socials?.map((social) => <p><a href={social.url} target="_blank" rel="noopener noreferrer">{social.label} ↗</a></p>)}</div></section>
+</BaseLayout>

@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import EditorialSections from '../components/EditorialSections.astro';
+import { page, renderMarkdoc, publicImage } from '../lib/content';
+const heritage = await page.heritage();
+---
+<BaseLayout title={heritage.seoTitle} description={heritage.seoDescription} image={publicImage(heritage.ogImage || heritage.heroImage)} active="heritage">
+  <section class="page-hero"><div class="page-title"><div class="eyebrow"><span>04</span><span>ARCHITECTURE / HISTORY</span></div><h1>{heritage.title}<span class="period">.</span></h1><p>{heritage.subtitle}</p></div><img src={publicImage(heritage.heroImage)} alt={heritage.heroAlt} fetchpriority="high" /></section>
+  <section class="section heritage-highlight"><div class="eyebrow"><span>UNESCO</span><span>WORLD HERITAGE</span></div><div class="editorial-grid"><h2>A landmark<br /><em>for Tripoli.</em></h2><div class="prose"><div class="lead rich-text" set:html={renderMarkdoc(heritage.introduction)} /><a class="outline-button" href={heritage.unescoUrl} target="_blank" rel="noopener noreferrer">UNESCO LISTING ↗</a></div></div></section>
+  <EditorialSections sections={heritage.sections} />
+  <section class="section"><div class="eyebrow"><span>01</span><span>SOURCES</span></div><div class="press-list">{heritage.references?.map((ref) => <a href={ref.url} target="_blank" rel="noopener noreferrer">{ref.title}<span>↗</span></a>)}</div><p class="editorial-note">The World Heritage listing covers the Rachid Karami International Fair complex. The Dome is one building within the listed ensemble.</p></section>
+  <section class="section note-section"><p class="micro">ARCHIVE NOTE</p><p>Historical architectural photographs, site drawings, and their publication permissions are still to be supplied. The current image is from the supplied film archive.</p></section>
+</BaseLayout>

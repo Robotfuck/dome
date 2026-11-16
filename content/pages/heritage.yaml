@@ -1,0 +1,32 @@
+seoTitle: UNESCO Heritage Site — The Dome Sessions
+seoDescription: Discover the Rachid Karami International Fair in Tripoli, a UNESCO World Heritage Site designed by Oscar Niemeyer.
+title: The Heritage Site
+subtitle: A modernist vision for Tripoli.
+heroImage: film-1.jpg
+heroAlt: The unfinished Dome at the Rachid Karami International Fair
+introduction: The Rachid Karami International Fair in Tripoli is a UNESCO World Heritage Site designed by Brazilian architect Oscar Niemeyer. The Dome is one structure within the larger fair complex; the UNESCO listing applies to the fairgrounds ensemble.
+sections:
+  - eyebrow: 01 / THE FAIR
+    heading: A fair for a changing city.
+    body: >-
+      Conceived as a major public and exhibition complex, the Rachid Karami International Fair brought together a series of buildings and open spaces in a single architectural plan. The Dome forms part of that wider composition.
+    image: ''
+    imageAlt: ''
+    caption: ''
+    visible: true
+  - eyebrow: 02 / CONSERVATION
+    heading: An unfinished legacy.
+    body: >-
+      The fair's construction was interrupted by the Lebanese Civil War. UNESCO's listing and conservation work address the fair complex as a whole. Historical details and additional licensed archival images can be added here as sources are approved.
+    image: ''
+    imageAlt: ''
+    caption: ''
+    visible: true
+unescoUrl: https://whc.unesco.org/en/list/1702/
+references:
+  - title: 'UNESCO World Heritage listing — Rachid Karami International Fair, Tripoli, Lebanon'
+    url: https://whc.unesco.org/en/list/1702/
+  - title: Rachid Karami International Fair authority
+    url: https://www.rkif.gov.lb/en/
+  - title: UNESCO conservation management plan article
+    url: https://www.unesco.org/en/articles/unesco-presents-rachid-karami-international-fairs-conservation-management-plan

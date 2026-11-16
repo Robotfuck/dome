@@ -1,0 +1,19 @@
+---
+import { publicImage } from '../lib/content';
+interface Props {
+  images?: ReadonlyArray<{ image: string | null; alt?: string; caption?: string; featured?: boolean }>;
+  heading?: string;
+  label?: string;
+}
+const { images = [], heading = '', label = 'IMAGES' } = Astro.props;
+---
+{images.length > 0 && <section class="section gallery-section">
+  <div class="eyebrow"><span>03</span><span>{label}</span></div>
+  {heading && <div class="section-heading"><h2>{heading}<span class="period">.</span></h2><p>Selected photographs from the archive</p></div>}
+  <div class="gallery-grid">
+    {images.map((item) => <figure>
+      <img src={publicImage(item.image)} alt={item.alt || item.caption || ''} loading="lazy" decoding="async" />
+      {item.caption && <figcaption>{item.caption}</figcaption>}
+    </figure>)}
+  </div>
+</section>}

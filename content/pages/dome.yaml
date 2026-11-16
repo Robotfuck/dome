@@ -1,0 +1,28 @@
+seoTitle: The Dome — The Dome Sessions
+seoDescription: Discover the unfinished experimental theatre in Tripoli that shaped the sound of The Dome Sessions.
+title: The Dome
+subtitle: The unfinished experimental theatre in Tripoli.
+heroImage: film-1.jpg
+heroAlt: Inside the unfinished Dome in Tripoli
+sections:
+  - eyebrow: 01 / THE SPACE
+    heading: A building that listens.
+    body: >-
+      An uncompleted structure. Raw concrete walls. A singular reverberation. The Dome forms part of the Rachid Karami International Fair designed by Oscar Niemeyer. Construction was halted during the Lebanese Civil War, leaving the experimental theatre without the acoustic treatment intended for a finished venue. That unfinished quality has become its defining sonic character. Long echoes shape every gesture and performance within the space.
+    image: ''
+    imageAlt: ''
+    caption: ''
+    visible: true
+  - eyebrow: 02 / A NEW PURPOSE
+    heading: Sound as an intervention.
+    body: >-
+      Since 2010, Firas El Hallak has approached the Dome as a site for sonic experimentation and a reflection on Tripoli's stories and identity. Through collaborative recording sessions, participating musicians respond to the building's acoustics, negotiating between composition, improvisation, and the space's own sonic behavior. The Dome Sessions considers how a neglected architectural monument can become a setting for artistic exchange and renewed public imagination.
+    image: ''
+    imageAlt: ''
+    caption: ''
+    visible: true
+gallery:
+  - { image: film-7.jpg, alt: A detail of the Dome, caption: '', featured: false }
+  - { image: film-3.jpg, alt: A film still inside the Dome, caption: '', featured: false }
+  - { image: film-6.jpg, alt: A performance in the Dome, caption: '', featured: false }
+  - { image: film-8.jpg, alt: The Dome Sessions film still, caption: '', featured: true }
