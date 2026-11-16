@@ -1,32 +1,38 @@
-seoTitle: UNESCO Heritage Site — The Dome Sessions
-seoDescription: Discover the Rachid Karami International Fair in Tripoli, a UNESCO World Heritage Site designed by Oscar Niemeyer.
-title: The Heritage Site
-subtitle: A modernist vision for Tripoli.
-heroImage: film-1.jpg
-heroAlt: The unfinished Dome at the Rachid Karami International Fair
-introduction: The Rachid Karami International Fair in Tripoli is a UNESCO World Heritage Site designed by Brazilian architect Oscar Niemeyer. The Dome is one structure within the larger fair complex; the UNESCO listing applies to the fairgrounds ensemble.
-sections:
-  - eyebrow: 01 / THE FAIR
-    heading: A fair for a changing city.
-    body: >-
-      Conceived as a major public and exhibition complex, the Rachid Karami International Fair brought together a series of buildings and open spaces in a single architectural plan. The Dome forms part of that wider composition.
-    image: ''
-    imageAlt: ''
-    caption: ''
+seoTitle: Rachid Karami International Fair — UNESCO World Heritage Site
+seoDescription: The Rachid Karami International Fair in Tripoli was inscribed on the UNESCO World Heritage List in 2023 and is also on the List of World Heritage in Danger.
+title: A UNESCO World Heritage Site since 2023
+subtitle: The Rachid Karami International Fair was inscribed on the World Heritage List and placed on the List of World Heritage in Danger in 2023.
+heroImage: fair-1.jpg
+heroAlt: View across the Rachid Karami International Fair from beneath its monumental concrete arcade in Tripoli
+introduction: |
+  Designed by Oscar Niemeyer between 1962 and 1967 and built until 1975, the Rachid Karami International Fair was planned as a large public exhibition complex for Tripoli. Its buildings, open spaces and gardens form one architectural ensemble. UNESCO recognizes the fair for its contribution to modern architecture and the cultural exchange embodied in the project. The World Heritage designation covers the fair complex as a whole—not the Dome alone.
+benefits:
+  - heading: International recognition
+    body: |
+      UNESCO recognizes the fair as a major work of 20th-century modern architecture in the Arab States, and as an exceptional example of cultural exchange between Brazilian modernism and the Arab Near East. That international recognition makes the fair’s architectural and cultural value visible to a wider public.
     visible: true
-  - eyebrow: 02 / CONSERVATION
-    heading: An unfinished legacy.
-    body: >-
-      The fair's construction was interrupted by the Lebanese Civil War. UNESCO's listing and conservation work address the fair complex as a whole. Historical details and additional licensed archival images can be added here as sources are approved.
-    image: ''
-    imageAlt: ''
-    caption: ''
+  - heading: A guide for conservation
+    body: |
+      UNESCO’s Conservation Management Plan sets out policies to guide conservation, restoration and future reuse. It gives site administrators, heritage specialists and future partners a shared reference for decisions that respect the fair’s significance.
     visible: true
+  - heading: A shared future for the fair
+    body: |
+      UNESCO calls for inclusive management involving heritage authorities, professionals, academic organizations and civil society. Heritage Impact Assessments can help evaluate proposed rehabilitation or reuse while safeguarding the values for which the fair was inscribed.
+    visible: true
+siteCondition: |
+  The designation does not itself guarantee funding or restoration. UNESCO also placed the fair on the List of World Heritage in Danger in 2023, citing serious conservation vulnerabilities, including aging concrete and structural stability concerns. The listing and conservation plan provide a framework for coordinated action.
 unescoUrl: https://whc.unesco.org/en/list/1702/
+gallery:
+  - image: fair-2.jpg
+    alt: Aerial view of the Rachid Karami International Fair, its exhibition grounds and the surrounding city of Tripoli
+    caption: The wider fairgrounds and the urban landscape of Tripoli.
+    featured: false
+  - image: fair-3.jpg
+    alt: Panoramic aerial view across the Rachid Karami International Fair toward Tripoli and the mountains
+    caption: The fair’s monumental composition within the city.
+    featured: false
 references:
-  - title: 'UNESCO World Heritage listing — Rachid Karami International Fair, Tripoli, Lebanon'
+  - title: UNESCO World Heritage listing — Rachid Karami International Fair, Tripoli
     url: https://whc.unesco.org/en/list/1702/
-  - title: Rachid Karami International Fair authority
-    url: https://www.rkif.gov.lb/en/
-  - title: UNESCO conservation management plan article
+  - title: UNESCO conservation management plan for the Rachid Karami International Fair
     url: https://www.unesco.org/en/articles/unesco-presents-rachid-karami-international-fairs-conservation-management-plan

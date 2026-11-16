@@ -1,9 +1,15 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionIntro from '../components/SectionIntro.astro';
 import { page, renderMarkdoc, publicImage } from '../lib/content';
 const team = await page.team();
 ---
-<BaseLayout title={team.seoTitle} description={team.seoDescription} image={publicImage(team.ogImage || team.members?.[0]?.portrait)} active="team">
-  <section class="page-title standalone"><div class="eyebrow"><span>03</span><span>THE PEOPLE</span></div><h1>{team.title}<span class="period">.</span></h1><p>{team.subtitle}</p></section>
-  <section class="people-grid">{team.members?.map((person) => <article class="person"><img src={publicImage(person.portrait)} alt={person.alt || `Portrait of ${person.name}`} loading="lazy" /><div class="person-info"><span class="micro">{person.role}</span><h2>{person.name}</h2>{person.shortBio && <p class="lead">{person.shortBio}</p>}<div class="rich-text" set:html={renderMarkdoc(person.biography)} /><div class="person-links">{person.website && <a href={person.website} target="_blank" rel="noopener noreferrer">Website ↗</a>}{person.instagram && <a href={person.instagram} target="_blank" rel="noopener noreferrer">Instagram ↗</a>}{person.otherLinks && <p>{person.otherLinks}</p>}</div></div></article>)}</section>
+<BaseLayout title={team.seoTitle} description={team.seoDescription} image={publicImage(team.ogImage || team.members?.[0]?.portrait)} active="credits">
+  <section class="page-title standalone credits-page-title"><div class="eyebrow"><span>03</span><span>THE PEOPLE</span></div><h1>{team.title}<span class="period">.</span></h1><p>{team.subtitle}</p></section>
+  <section class="people-grid">{team.members?.map((person) => <article class="person">
+    <div class="person-heading"><img src={publicImage(person.portrait)} alt={person.alt || `Portrait of ${person.name}`} loading="lazy" /><div class="person-intro"><span class="micro">{person.role}</span><h2>{person.name}</h2>{person.shortBio && <p class="lead">{person.shortBio}</p>}</div></div>
+    <div class="person-biography prose rich-text" set:html={renderMarkdoc(person.biography)} />
+    <div class="person-links">{person.website && <a href={person.website} target="_blank" rel="noopener noreferrer">Website ↗</a>}{person.instagram && <a href={person.instagram} target="_blank" rel="noopener noreferrer">Instagram ↗</a>}{person.otherLinks && <p>{person.otherLinks}</p>}</div>
+  </article>)}</section>
+  <section class="section credits-section"><SectionIntro index="04" label="FULL FILM CREDITS" /><div class="editorial-grid credits-editorial"><h2>The people<br /><em>behind the film.</em></h2><dl class="credits-list">{team.credits?.map((credit) => <div class="credit"><dt>{credit.role}</dt><dd>{credit.person}</dd></div>)}</dl></div></section>
 </BaseLayout>

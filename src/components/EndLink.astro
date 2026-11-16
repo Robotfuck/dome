@@ -1,4 +1,19 @@
 ---
-const { href, kicker, title } = Astro.props;
+import { renderMarkdoc, publicImage, type MarkdocContent } from '../lib/content';
+interface Props {
+  href: string;
+  kicker: string;
+  title: string;
+  description?: MarkdocContent;
+  image?: string | null;
+  imageAlt?: string;
+}
+const { href, kicker, title, description, image, imageAlt = '' } = Astro.props as Props;
 ---
-<section class="end-link"><a href={href}><span>{kicker}</span><strong>{title}<span aria-hidden="true">↗</span></strong></a></section>
+{image ? <section class="end-link end-link-featured">
+  <div class="end-link-copy">
+    {description && <div class="end-link-description rich-text" set:html={renderMarkdoc(description)} />}
+    <a href={href}><span>{kicker}</span><strong>{title}<span aria-hidden="true">↗</span></strong></a>
+  </div>
+  <img class="end-link-image" src={publicImage(image)} alt={imageAlt} loading="lazy" />
+</section> : <section class="end-link"><a href={href}><span>{kicker}</span><strong>{title}<span aria-hidden="true">↗</span></strong></a></section>}

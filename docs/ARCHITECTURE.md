@@ -3,7 +3,7 @@
 ## Runtime
 
 - Astro 5 with TypeScript and the Cloudflare adapter.
-- Static generation for the six public pages, sitemap and robots file.
+- Static generation for the five public pages (Film, Vinyl, Credits, Heritage Site and Contact), sitemap and robots file. The redundant Dome-only page was removed; the Dome remains part of the Heritage Site story.
 - Cloudflare Worker routes for Keystatic's admin and API. The project uses the Cloudflare Workers free tier target; it does not require a database.
 - Shared Astro layout and components live in `src/layouts/` and `src/components/`.
 

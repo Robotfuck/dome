@@ -2,8 +2,8 @@
 import '../styles/global.css';
 const { title = 'The Dome Sessions', description = 'A documentary film exploring sound, architecture and memory in Tripoli, Lebanon.', image = '/assets/film-8.jpg', active = '' } = Astro.props;
 const nav = [
-  ['The Film', '/', 'home'], ['The Vinyl', '/vinyl/', 'vinyl'], ['The Team', '/team/', 'team'],
-  ['Heritage Site', '/heritage/', 'heritage'], ['The Dome', '/dome/', 'dome'], ['Contact', '/contact/', 'contact'],
+  ['The Film', '/', 'home'], ['The Vinyl', '/vinyl/', 'vinyl'], ['Credits', '/team/', 'credits'],
+  ['Heritage Site', '/heritage/', 'heritage'], ['Contact', '/contact/', 'contact'],
 ];
 const canonical = new URL(Astro.url.pathname, 'https://thedomesessions.com').toString();
 ---

@@ -13,7 +13,6 @@ export const page = {
   vinyl: () => required(contentReader.singletons.vinyl.read(), 'vinyl'),
   team: () => required(contentReader.singletons.team.read(), 'team'),
   heritage: () => required(contentReader.singletons.heritage.read(), 'heritage'),
-  dome: () => required(contentReader.singletons.dome.read(), 'dome'),
   contact: () => required(contentReader.singletons.contact.read(), 'contact'),
 };
 export const collection = {

@@ -1,11 +1,11 @@
-seoTitle: The Team — The Dome Sessions
-seoDescription: Meet Firas El Hallak and Anthony Tawil, the director and producers of The Dome Sessions.
-title: The Team
-subtitle: Artists, collaborators, storytellers.
+seoTitle: Credits — The Dome Sessions
+seoDescription: Meet the filmmakers behind The Dome Sessions and explore the full film credits.
+title: Credits
+subtitle: The team behind the film.
 members:
   - name: Firas El Hallak
     role: Director / Producer
-    portrait: firas-portrait.png
+    portrait: anthony-portrait.jpg
     alt: Portrait of Firas El Hallak
     shortBio: Audiovisual artist and curator based between Belgium and Beirut.
     biography: >-
@@ -15,7 +15,7 @@ members:
     otherLinks: ''
   - name: Anthony Tawil
     role: Producer
-    portrait: anthony-portrait.jpg
+    portrait: firas-portrait.png
     alt: Portrait of Anthony Tawil
     shortBio: Lebanese multidisciplinary artist, musician, and producer based in Paris.
     biography: >-
@@ -23,3 +23,25 @@ members:
     website: ''
     instagram: ''
     otherLinks: ''
+credits:
+  - { role: Directed by, person: Firas el Hallak }
+  - { role: Produced by, person: Anthony Tawil & Firas El Hallak }
+  - { role: Featuring, person: Wassim Naghi }
+  - { role: Director of Photography, person: Joe Saadeh }
+  - { role: Gaffer, person: Mizyed Azrai }
+  - { role: Line Producers, person: Jad Nehmeh & Joe Ghawy }
+  - { role: Production Manager, person: Layane Hajjar }
+  - { role: Drone Operator, person: Omar Imady }
+  - { role: Film Editors, person: Firas El Hallak & Rita Mounzer }
+  - { role: Colorist, person: Chrystel Elias }
+  - { role: Sound Designer, person: Cedric Kayem }
+  - { role: Graphic Designer, person: Cynthia El Hasbani }
+  - { role: Poster Design, person: Valentijn Goethals }
+  - { role: Set Photographer, person: Gabriel Fernaini }
+  - { role: Behind-The-Scenes, person: Nader Bahsoun }
+  - { role: Blender Artist, person: Mansour Aoun }
+  - { role: Copywriter, person: Wassila Abboud }
+  - { role: Subtitles, person: Anthony Tawil & Lama Al Arian }
+  - { role: Location Manager, person: Omar El Sayyed }
+  - { role: Rental House, person: Platform Studios }
+  - { role: General Fixer, person: Adel Hallak }

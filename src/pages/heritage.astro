@@ -1,13 +1,19 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import EditorialSections from '../components/EditorialSections.astro';
+import Gallery from '../components/Gallery.astro';
+import SectionIntro from '../components/SectionIntro.astro';
 import { page, renderMarkdoc, publicImage } from '../lib/content';
 const heritage = await page.heritage();
+const benefits = heritage.benefits?.filter((benefit) => benefit.visible && benefit.heading) ?? [];
 ---
 <BaseLayout title={heritage.seoTitle} description={heritage.seoDescription} image={publicImage(heritage.ogImage || heritage.heroImage)} active="heritage">
-  <section class="page-hero"><div class="page-title"><div class="eyebrow"><span>04</span><span>ARCHITECTURE / HISTORY</span></div><h1>{heritage.title}<span class="period">.</span></h1><p>{heritage.subtitle}</p></div><img src={publicImage(heritage.heroImage)} alt={heritage.heroAlt} fetchpriority="high" /></section>
-  <section class="section heritage-highlight"><div class="eyebrow"><span>UNESCO</span><span>WORLD HERITAGE</span></div><div class="editorial-grid"><h2>A landmark<br /><em>for Tripoli.</em></h2><div class="prose"><div class="lead rich-text" set:html={renderMarkdoc(heritage.introduction)} /><a class="outline-button" href={heritage.unescoUrl} target="_blank" rel="noopener noreferrer">UNESCO LISTING ↗</a></div></div></section>
-  <EditorialSections sections={heritage.sections} />
-  <section class="section"><div class="eyebrow"><span>01</span><span>SOURCES</span></div><div class="press-list">{heritage.references?.map((ref) => <a href={ref.url} target="_blank" rel="noopener noreferrer">{ref.title}<span>↗</span></a>)}</div><p class="editorial-note">The World Heritage listing covers the Rachid Karami International Fair complex. The Dome is one building within the listed ensemble.</p></section>
-  <section class="section note-section"><p class="micro">ARCHIVE NOTE</p><p>Historical architectural photographs, site drawings, and their publication permissions are still to be supplied. The current image is from the supplied film archive.</p></section>
+  <section class="heritage-hero">
+    <img src={publicImage(heritage.heroImage)} alt={heritage.heroAlt} fetchpriority="high" />
+    <div class="heritage-hero-scrim"><div class="eyebrow"><span>UNESCO</span><span>WORLD HERITAGE · TRIPOLI, LEBANON</span></div><h1>{heritage.title}<span class="period">.</span></h1><p>{heritage.subtitle}</p></div>
+  </section>
+  <section class="section heritage-intro"><SectionIntro index="01" label="THE FAIR AS A WHOLE" /><div class="editorial-grid"><h2>A landmark<br /><em>for Tripoli.</em></h2><div class="prose rich-text" set:html={renderMarkdoc(heritage.introduction)} /></div></section>
+  <section class="section heritage-benefits"><SectionIntro index="02" label="WHY RECOGNITION MATTERS" /><div class="benefit-grid">{benefits.map((benefit, index) => <article class="benefit-card"><span>{String(index + 1).padStart(2, '0')}</span><h2>{benefit.heading}</h2><div class="prose rich-text" set:html={renderMarkdoc(benefit.body)} /></article>)}</div></section>
+  <section class="heritage-status"><div class="heritage-status-heading"><span class="micro">2023 · WORLD HERITAGE IN DANGER</span><h2>Recognition brings responsibility.</h2></div><div class="prose rich-text" set:html={renderMarkdoc(heritage.siteCondition)} /></section>
+  <Gallery images={heritage.gallery} heading="The Rachid Karami International Fair" label="THE FAIRGROUNDS" description="Views of the larger fair complex in its setting within Tripoli." />
+  <section class="section heritage-sources"><SectionIntro index="03" label="SOURCES & FURTHER READING" /><div class="press-list">{heritage.references?.map((ref) => <a href={ref.url} target="_blank" rel="noopener noreferrer">{ref.title}<span>↗</span></a>)}</div><p class="editorial-note">The UNESCO World Heritage listing applies to the Rachid Karami International Fair complex as a whole. The Dome is one building within that ensemble.</p></section>
 </BaseLayout>

@@ -4,13 +4,18 @@ title: The Dome Sessions
 tagline: An exploration of sound, space, and memory.
 heroImage: film-8.jpg
 heroAlt: The monumental interior of the unfinished Dome in Tripoli
-introHeading: The sound of an unfinished space.
-shortSynopsis: In Tripoli, Lebanon, an unfinished experimental theatre becomes a meeting place for sound, architecture, and memory.
-fullSynopsis: >-
-  Designed by Oscar Niemeyer in 1962, the Dome at the Rachid Karami International Fair was never completed. Its raw concrete interior and unusual reverberation became the setting for a series of performances in which musicians respond to the space itself. The Dome Sessions follows the collaborative experiment and the building's place in the city's social and historical fabric, asking how art can reclaim abandoned spaces and reimagine their futures.
+introHeading: An Exploration of Sound and Space
+fullSynopsis: |
+  The Dome Sessions is an exploration of sound and space, emerging from the distinct architectural and acoustic features of the unfinished Dome of the Rachid Karami International Fair in Tripoli, Lebanon.
+
+  Designed by renowned architect Oscar Niemeyer in 1962, the space never fulfilled its intended purpose as part of a decentralized economic plan for the city and instead remains a relic of unrealized potential in decay.
+
+  When the Lebanese Civil War began, construction on the Dome ceased, leaving it acoustically untreated. This created a haunting and rare reverb within the space. Since 2010, audiovisual artist and curator Firas El Hallak has used the Dome as a landmark to reflect the told and untold stories of the city through sonic experiments that intertwine sound, space, and memory.
+
+  What began as an individual curiosity evolved into a collaborative experiment, with each artist adapting their approach to the Dome's distinctive sound and layered history. Every recorded session reverberates within its concrete walls. By reclaiming this forgotten structure and reinventing its possibilities, the work dissolves the boundaries between past and present, personal and communal.
 directorsStatement: ''
 vimeoUrl: https://vimeo.com/1229506144
-galleryHeading: Inside the Dome
+galleryHeading: Stills from the film
 gallery:
   - image: film-2.jpg
     alt: A film still from inside the Dome
@@ -37,25 +42,7 @@ gallery:
     caption: ''
     featured: false
 specifications: []
-credits:
-  - { role: Directed by, person: Firas el Hallak }
-  - { role: Produced by, person: Anthony Tawil & Firas El Hallak }
-  - { role: Featuring, person: Wassim Naghi }
-  - { role: Director of Photography, person: Joe Saadeh }
-  - { role: Gaffer, person: Mizyed Azrai }
-  - { role: Line Producers, person: Jad Nehmeh & Joe Ghawy }
-  - { role: Production Manager, person: Layane Hajjar }
-  - { role: Drone Operator, person: Omar Imady }
-  - { role: Film Editors, person: Firas El Hallak & Rita Mounzer }
-  - { role: Colorist, person: Chrystel Elias }
-  - { role: Sound Designer, person: Cedric Kayem }
-  - { role: Graphic Designer, person: Cynthia El Hasbani }
-  - { role: Poster Design, person: Valentijn Goethals }
-  - { role: Set Photographer, person: Gabriel Fernaini }
-  - { role: Behind-The-Scenes, person: Nader Bahsoun }
-  - { role: Blender Artist, person: Mansour Aoun }
-  - { role: Copywriter, person: Wassila Abboud }
-  - { role: Subtitles, person: Anthony Tawil & Lama Al Arian }
-  - { role: Location Manager, person: Omar El Sayyed }
-  - { role: Rental House, person: Platform Studios }
-  - { role: General Fixer, person: Adel Hallak }
+vinylCtaCopy: |
+  The Dome Sessions is also available as a double vinyl live album.
+
+  The recordings also serve as part of the soundtrack for a film that examines the Dome’s place in Tripoli’s social and historical fabric. While the body of work reflects the many diverging currents of place and identity in Lebanon, its core lies in the power of how a shared idea or action can breathe new life into the abandoned. By utilizing and reclaiming the Dome as a site of collaboration, the project underscores the role of art in the preservation and reinterpretation of heritage.

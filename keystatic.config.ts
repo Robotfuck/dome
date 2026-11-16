@@ -17,15 +17,11 @@ const seo = {
   seoDescription: fields.text({ label: 'SEO description', multiline: true }),
   ogImage: image('Social sharing image'),
 };
-const editorialSections = fields.array(fields.object({
-  eyebrow: fields.text({ label: 'Section label' }),
-  heading: fields.text({ label: 'Heading' }),
-  body: fields.markdoc.inline({ label: 'Text' }),
-  image: image('Optional image'),
-  imageAlt: fields.text({ label: 'Image alternative text' }),
-  caption: fields.text({ label: 'Image caption' }),
-  visible: fields.checkbox({ label: 'Show section', defaultValue: true }),
-}), { label: 'Editorial sections', itemLabel: (props) => props.fields.heading.value || 'Section' });
+const heritageBenefits = fields.array(fields.object({
+  heading: fields.text({ label: 'Benefit heading' }),
+  body: fields.markdoc.inline({ label: 'Explanation' }),
+  visible: fields.checkbox({ label: 'Show benefit', defaultValue: true }),
+}), { label: 'Why recognition matters', itemLabel: (props) => props.fields.heading.value || 'Benefit' });
 
 const githubMode = process.env.KEYSTATIC_MODE === 'github';
 if (process.env.NODE_ENV === 'production' && process.env.KEYSTATIC_MODE !== 'local' && !githubMode) {
@@ -42,26 +38,24 @@ export default config({
   singletons: {
     home: singleton({ label: 'The Film — Homepage', path: 'content/pages/home', format: { data: 'yaml' }, schema: {
       ...seo, title: fields.text({ label: 'Film title' }), tagline: fields.text({ label: 'Subtitle / tagline' }), heroImage: image('Hero photograph'), heroAlt: fields.text({ label: 'Hero image alternative text' }),
-      introHeading: fields.text({ label: 'Introduction heading' }), shortSynopsis: fields.text({ label: 'Short synopsis', multiline: true }), fullSynopsis: fields.markdoc.inline({ label: 'Full synopsis' }), directorsStatement: fields.markdoc.inline({ label: 'Director statement' }),
+      introHeading: fields.text({ label: 'Introduction heading' }), fullSynopsis: fields.markdoc.inline({ label: 'Full synopsis' }), directorsStatement: fields.markdoc.inline({ label: 'Director statement' }),
       vimeoUrl: fields.url({ label: 'Vimeo trailer URL' }), galleryHeading: fields.text({ label: 'Gallery heading' }), gallery: gallery('Film gallery'),
+      vinylCtaCopy: fields.markdoc.inline({ label: 'Vinyl feature text' }),
       specifications: fields.array(fields.object({ label: fields.text({ label: 'Specification' }), value: fields.text({ label: 'Value' }) }), { label: 'Technical information', itemLabel: (p) => p.fields.label.value || 'Specification' }),
-      credits: fields.array(fields.object({ role: fields.text({ label: 'Role' }), person: fields.text({ label: 'Person / organization' }) }), { label: 'Film credits', itemLabel: (p) => `${p.fields.role.value || 'Credit'} — ${p.fields.person.value || ''}` }),
     }}),
     vinyl: singleton({ label: 'The Vinyl', path: 'content/pages/vinyl', format: { data: 'yaml' }, schema: {
-      ...seo, title: fields.text({ label: 'Page title' }), subtitle: fields.text({ label: 'Subtitle' }), introHeading: fields.text({ label: 'Introduction heading' }), intro: fields.markdoc.inline({ label: 'Introduction' }), description: fields.markdoc.inline({ label: 'Album description' }),
+      ...seo, title: fields.text({ label: 'Page title' }), subtitle: fields.text({ label: 'Subtitle' }), introHeading: fields.text({ label: 'Record statement' }), description: fields.markdoc.inline({ label: 'Album description' }), albumArtwork: image('Album artwork'),
       bandcampUrl: fields.url({ label: 'Bandcamp album URL' }), bandcampEmbedUrl: fields.url({ label: 'Bandcamp embed URL' }), purchaseUrl: fields.url({ label: 'Purchase link' }), gallery: gallery('Vinyl photographs'),
       trackListing: fields.array(fields.text({ label: 'Track' }), { label: 'Track listing' }), releaseInfo: fields.text({ label: 'Release information', multiline: true }), credits: fields.text({ label: 'Release credits', multiline: true }),
     }}),
-    team: singleton({ label: 'The Team', path: 'content/pages/team', format: { data: 'yaml' }, schema: {
+    team: singleton({ label: 'Credits', path: 'content/pages/team', format: { data: 'yaml' }, schema: {
       ...seo, title: fields.text({ label: 'Page title' }), subtitle: fields.text({ label: 'Subtitle' }),
       members: fields.array(fields.object({ name: fields.text({ label: 'Name' }), role: fields.text({ label: 'Role' }), portrait: image('Portrait'), alt: fields.text({ label: 'Portrait alternative text' }), shortBio: fields.text({ label: 'Short biography', multiline: true }), biography: fields.markdoc.inline({ label: 'Full biography' }), website: fields.url({ label: 'Website' }), instagram: fields.url({ label: 'Instagram' }), otherLinks: fields.text({ label: 'Other links', multiline: true }) }), { label: 'Team members', itemLabel: (p) => p.fields.name.value || 'Team member' }),
+      credits: fields.array(fields.object({ role: fields.text({ label: 'Role' }), person: fields.text({ label: 'Person / organization' }) }), { label: 'Film credits', itemLabel: (p) => `${p.fields.role.value || 'Credit'} — ${p.fields.person.value || ''}` }),
     }}),
     heritage: singleton({ label: 'UNESCO Heritage Site', path: 'content/pages/heritage', format: { data: 'yaml' }, schema: {
-      ...seo, title: fields.text({ label: 'Page title' }), subtitle: fields.text({ label: 'Subtitle' }), heroImage: image('Hero image'), heroAlt: fields.text({ label: 'Hero image alternative text' }), introduction: fields.markdoc.inline({ label: 'Introduction' }), sections: editorialSections,
+      ...seo, title: fields.text({ label: 'Page title' }), subtitle: fields.text({ label: 'Subtitle' }), heroImage: image('Main fair photograph'), heroAlt: fields.text({ label: 'Main image alternative text' }), introduction: fields.markdoc.inline({ label: 'Introduction' }), benefits: heritageBenefits, siteCondition: fields.markdoc.inline({ label: 'Heritage-in-Danger context' }), gallery: gallery('Fair photographs'),
       unescoUrl: fields.url({ label: 'UNESCO listing URL' }), references: fields.array(fields.object({ title: fields.text({ label: 'Source title' }), url: fields.url({ label: 'Source URL' }) }), { label: 'Source references', itemLabel: (p) => p.fields.title.value || 'Reference' }),
-    }}),
-    dome: singleton({ label: 'The Dome', path: 'content/pages/dome', format: { data: 'yaml' }, schema: {
-      ...seo, title: fields.text({ label: 'Page title' }), subtitle: fields.text({ label: 'Subtitle' }), heroImage: image('Hero image'), heroAlt: fields.text({ label: 'Hero image alternative text' }), sections: editorialSections, gallery: gallery('Dome gallery'),
     }}),
     contact: singleton({ label: 'Contact', path: 'content/pages/contact', format: { data: 'yaml' }, schema: {
       ...seo, title: fields.text({ label: 'Page title' }), intro: fields.text({ label: 'Introduction', multiline: true }), productionName: fields.text({ label: 'Production / collective' }), productionEmail: fields.text({ label: 'Production email' }), additionalEmails: fields.array(fields.text({ label: 'Email address' }), { label: 'Additional contact emails' }),
