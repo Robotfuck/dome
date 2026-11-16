@@ -28,13 +28,15 @@ Visit `/keystatic/` locally, edit content, and verify it on the public routes. P
 6. Check that `/keystatic/` redirects unauthenticated visitors to sign in, authenticated editors can save content, and the deployment publishes the resulting change.
 7. Add the custom domain in Workers & Pages → Workers → the deployed Worker → Settings → Domains & Routes. Confirm DNS and HTTPS before announcing the domain.
 
+The Wrangler configuration targets the existing Worker named `dome`. It runs the generated adapter entrypoint at `./dist/_worker.js/index.js` and serves assets from `./dist`. Keep both `_worker.js` and `_routes.json` in `public/.assetsignore`; the build copies that non-empty ignore file to `dist/.assetsignore` so Wrangler excludes Worker internals and route metadata from static asset uploads.
+
 Example manual deploy after build:
 
 ```sh
 npx wrangler deploy
 ```
 
-The tracked `wrangler.jsonc` names the Worker and uses the static assets output produced by the Cloudflare adapter. Confirm it against the generated build before first deploy.
+The tracked `wrangler.jsonc` names the Worker and uses the static assets output produced by the Cloudflare adapter. Run a production build before deploying so the generated Worker entrypoint and `dist/.assetsignore` are present.
 
 ## Media and cost
 
